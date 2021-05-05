@@ -1,0 +1,230 @@
+package jgacurio1_progalg_aa21;
+
+/**
+ *
+ * @author Jhon Acurio
+ */
+public class Jgacurio1_ProgAlg_AA21 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+     // crea instancia de un objeto EmpleadoBaseMasComision4
+EmpleadoBaseMasComision empleado = new EmpleadoBaseMasComision( "Jhon", "Acurio", "333-33-3333", 5000, .04, 300 );
+// crea instancia de objeto EmpleadoPorComision
+EmpleadoPorComision empleado1 = new EmpleadoPorComision( "Patricio", "Acurio", "222-22-2222", 10000, .06 );
+
+ // obtiene datos del empleado por comisión
+System.out.println(
+ "Ejecución de: PruebaEmpleadoPorComision \n" );
+ System.out.println(
+ "Informacion del empleado obtenida por los metodos establecer: \n" );
+ System.out.printf( "%s %s\n", "El primer nombre es",
+empleado1.obtenerPrimerNombre() );
+ System.out.printf( "%s %s\n", "El apellido paterno es",
+ empleado1.obtenerApellidoPaterno() );
+ System.out.printf( "%s %s\n", "El numero de seguro social es",
+ empleado1.obtenerNumeroSeguroSocial() );
+ System.out.printf( "%s %.2f\n", "Las ventas brutas son",
+ empleado1.obtenerVentasBrutas() );
+ System.out.printf( "%s %.2f\n", "La tarifa de comision es",
+ empleado1.obtenerTarifaComision() );
+empleado1.establecerVentasBrutas( 500 ); // establece las ventas brutas
+ empleado1.establecerTarifaComision( .1 ); // establece la tarifa de comisión
+
+ System.out.printf( "\n%s:\n\n%s\n",
+ "Informacion actualizada del empleado, obtenida mediante toString", empleado1 );
+
+
+ // obtiene datos del empleado por comisión con sueldo base
+ System.out.println(
+ "\n ********************************************************* \n" );
+ System.out.println(
+ "Ejecución de: PruebaEmpleadoBaseMasComision \n" );
+ System.out.println(
+ "Informacion del empleado obtenida por los metodos establecer: \n" );
+ System.out.printf( "%s %s\n", "El primer nombre es",
+ empleado.obtenerPrimerNombre() );
+ System.out.printf( "%s %s\n", "El apellido es",
+ empleado.obtenerApellidoPaterno() );
+ System.out.printf( "%s %s\n", "El numero de seguro social es",
+ empleado.obtenerNumeroSeguroSocial() );
+ System.out.printf( "%s %.2f\n", "Las ventas brutas son",
+ empleado.obtenerVentasBrutas() );
+ System.out.printf( "%s %.2f\n", "La tarifa de comision es",
+ empleado.obtenerTarifaComision() );
+ System.out.printf( "%s %.2f\n", "El salario base es",
+ empleado.obtenerSalarioBase() );
+
+ empleado.establecerSalarioBase( 1000 ); // establece el salario base
+
+ System.out.printf( "\n%s:\n\n%s\n",
+ "Informacion actualizada del empleado, obtenida por toString",
+ empleado.toString() );
+   }
+    
+// La clase EmpleadoPorComision3 representa a un empleado por comisión.
+
+ static class Empleado
+ {    
+ public String primerNombre;
+ public String apellidoPaterno;
+ public String numeroSeguroSocial; 
+ public Empleado( String nombre, String apellido, String nss)
+ {
+ // la llamada implícita al constructor de Object ocurre aquí
+ primerNombre = nombre;
+ apellidoPaterno = apellido;
+ numeroSeguroSocial = nss;
+ }
+ //Métodos solicitados en el enunciado del problema
+ public String obtenerPrimerNombre()
+ {
+ return primerNombre;
+ } // fin del método obtenerPrimerNombre
+ 
+ public String obtenerApellidoPaterno()
+ {
+ return apellidoPaterno;
+ } // fin del método obtenerApellidoPaterno
+ public String obtenerNumeroSeguroSocial()
+ {
+ return numeroSeguroSocial;
+ } // fin del método obtenerNumeroSeguroSocial  
+ 
+ public String toString()
+ {
+ return String.format( "%s: %s %s\n%s: %s\n","empleado por comision", obtenerPrimerNombre(), obtenerApellidoPaterno(),"numero de seguro social", obtenerNumeroSeguroSocial()
+ );
+ } // fin del método toString
+}
+// La clase EmpleadoPorComision3 representa a un empleado por comisión.
+
+ static class EmpleadoPorComision extends Empleado
+ {
+ private double ventasBrutas; // ventas totales por semana
+ private double tarifaComision; // porcentaje de comisión
+ 
+ // constructor con seis argumentos
+ public EmpleadoPorComision( String nombre, String apellido,
+ String nss, double ventas, double tarifa )
+ {
+  super( nombre, apellido, nss);
+ // la llamada implícita al constructor de Object ocurre aquí
+ establecerVentasBrutas( ventas ); // valida y almacena las ventas brutas
+ establecerTarifaComision( tarifa ); // valida y almacena la tarifa de comisión
+ } // fin del constructor de EmpleadoBaseMasComision4 con seis argumentos
+
+  // establece el primer nombre
+ public void establecerPrimerNombre( String nombre )
+ {
+ primerNombre = nombre;
+ } // fin del método establecerPrimerNombre
+
+ // devuelve el primer nombre
+ 
+
+ // establece el apellido paterno
+ public void establecerApellidoPaterno( String apellido )
+ {
+ apellidoPaterno = apellido;
+ } // fin del método establecerApellidoPaterno
+
+ // devuelve el apellido paterno
+ 
+
+ // establece el número de seguro social
+ public void establecerNumeroSeguroSocial( String nss )
+ {
+ numeroSeguroSocial = nss; // debe validar
+ } // fin del método establecerNumeroSeguroSocial
+
+ // devuelve el número de seguro social
+   
+// establece el monto de ventas brutas
+ public void establecerVentasBrutas( double ventas )
+ {
+ ventasBrutas = ( ventas < 0.0 ) ? 0.0 : ventas;
+ } // fin del método establecerVentasBrutas
+
+ // devuelve el monto de ventas brutas
+ public double obtenerVentasBrutas()
+ {
+ return ventasBrutas;
+ } // fin del método obtenerVentasBrutas
+
+ // establece la tarifa de comisión
+ public void establecerTarifaComision( double tarifa )
+ {
+ tarifaComision = ( tarifa > 0.0 && tarifa < 1.0 ) ? tarifa : 0.0;
+ } // fin del método establecerTarifaComision
+
+ // devuelve la tarifa de comisión
+ public double obtenerTarifaComision()
+ {
+ return tarifaComision;
+ } // fin del método obtenerTarifaComision
+
+ // calcula los ingresos
+ public double ingresos()
+ {
+ return obtenerTarifaComision() * obtenerVentasBrutas();
+ } // fin del método ingresos
+
+ // devuelve representación String del objeto EmpleadoPorComision3
+ @Override
+ public String toString()
+ {
+ return String.format( "%s %s: %.2f\n%s: %.2f", super.toString(),
+ "ventas brutas", obtenerVentasBrutas(),
+ "tarifa de comision", obtenerTarifaComision() );
+ 
+
+ } // fin del método toString
+ } // fin de la clase EmpleadoPorComision   
+ 
+ 
+ // La clase EmpleadoBaseMasComision hereda de EmpleadoPorComision y
+ // accede a los datos private de EmpleadoPorComision a través de los
+ // métodos public de EmpleadoPorComision.
+
+ static class EmpleadoBaseMasComision extends EmpleadoPorComision
+ {
+ private double salarioBase; // salario base por semana
+
+ // constructor con seis argumentos
+ public EmpleadoBaseMasComision( String nombre, String apellido,
+ String nss, double ventas, double tarifa, double salario )
+ {
+ super( nombre, apellido, nss, ventas, tarifa );
+ establecerSalarioBase( salario ); // valida y almacena el salario base
+ } // fin del constructor de EmpleadoBaseMasComision4 con seis argumentos
+
+ // establece el salario base
+ public void establecerSalarioBase( double salario )
+ {
+ salarioBase = ( salario < 0.0 ) ? 0.0 : salario;
+ } // fin del método establecerSalarioBase
+
+ // devuelve el salario base
+ public double obtenerSalarioBase()
+ {
+ return salarioBase;
+ } // fin del método obtenerSalarioBase
+
+ // calcula los ingresos
+ @Override
+ public double ingresos()
+ {
+ return obtenerSalarioBase() + super.ingresos();
+ } // fin del método ingresos
+
+ // devuelve representación String de EmpleadoBaseMasComision4
+ public String toString()
+ {
+ return String.format( "%s %s\n%s: %.2f", "con sueldo base",
+ super.toString(),"sueldo base", obtenerSalarioBase() );
+ } // fin del método toString
+ } // fin de la clase EmpleadoBaseMasComision4
+}
