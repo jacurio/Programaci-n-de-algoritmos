@@ -2,7 +2,7 @@ package jgacurio1_progalg_aa21;
 
 /**
  *
- * @author Jhon Acurio
+ * @author John Acurio
  */
 public class Jgacurio1_ProgAlg_AA21 {
 
@@ -124,15 +124,15 @@ empleado1.establecerVentasBrutas( 500 ); // establece las ventas brutas
 
  // devuelve el primer nombre
  
-
+ 
  // establece el apellido paterno
  public void establecerApellidoPaterno( String apellido )
  {
  apellidoPaterno = apellido;
  } // fin del método establecerApellidoPaterno
-
- // devuelve el apellido paterno
  
+ // devuelve el apellido paterno
+
 
  // establece el número de seguro social
  public void establecerNumeroSeguroSocial( String nss )
@@ -142,7 +142,7 @@ empleado1.establecerVentasBrutas( 500 ); // establece las ventas brutas
 
  // devuelve el número de seguro social
    
-// establece el monto de ventas brutas
+ // establece el monto de ventas brutas
  public void establecerVentasBrutas( double ventas )
  {
  ventasBrutas = ( ventas < 0.0 ) ? 0.0 : ventas;
